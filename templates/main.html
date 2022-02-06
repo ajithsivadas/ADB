@@ -1,3 +1,4 @@
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -37,7 +38,7 @@
       </div>
 
     </div>
-
+    {% block head %} 
 <!--Placeholder for body-->
 {% block body %}
 <div class="container">
@@ -46,23 +47,26 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Name</th>
+          <th scope="col">Date</th>
           <th scope="col">Salary</th>
           <th scope="col">Room</th>
           <th scope="col">Telephone</th>
           <th scope="col">Picture</th>
           <th scope="col">Keywords</th>
+   
         </tr>
       </thead>
       <tbody>
         {% for data in table %}
         <tr>
-          <td>{{ data[0] }}</td>
-          <td>{{ data[1] }}</td>
-          <td>{{ data[2] }}</td>
-          <td>{{ data[3] }}</td>
-          <td>{{ data[4] }}</td>
-          <td>{{ data[5] }}</td>
+          <td>{{ data[0][0] }}</td>
+          <td>{{ data[0][2] }}</td>
+          <td>{{ data[0][3] }}</td>
+          <td>{{ data[0][4] }}</td>
+          <td>{{ data[0][5] }}</td>
+          <td>{{ data[0][6] }}</td>
+          <td>{{ data[0][7] }}</td>
+
         </tr>
         {% endfor %}
       </tbody>
@@ -72,9 +76,10 @@
   <h4>No data available..</h4>
   {% endif %}
 </div>
-
+{% endblock %} 
+{% endblock %} 
   </body>
-</html>
 
+</html>
 
 
