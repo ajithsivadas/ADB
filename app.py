@@ -13,9 +13,11 @@ try:
     cursor = conn.cursor()
 except Exception:
     print("Error connecting DB")
-
-
 @app.route('/')
+def index():
+ return "Hello, Flask!"
+
+@app.route('/show')
 def index():
     arr=[]
     query = "SELECT * FROM EARTHQUAKE LIMIT 10"
