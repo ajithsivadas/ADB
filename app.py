@@ -14,7 +14,7 @@ try:
 except Exception:
     print("Error connecting DB")
 @app.route('/')
-def index():
+def hello():
  return "Hello, Flask!"
 
 @app.route('/show')
