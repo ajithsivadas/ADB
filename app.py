@@ -9,7 +9,7 @@ conn = pymssql.connect(server='dbserverdb1.database.windows.net', user='dbserver
 cursor = conn.cursor()
 
 
-@app.route('/')
+@app.route('/home')
 def index():
 
     arr=[]
