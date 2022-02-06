@@ -1,30 +1,36 @@
 from flask import Flask, render_template
 import pyodbc
+import numpy as np
 app = Flask(__name__)
-databaseName = 'db12'
-username = 'dbserverdb1admin'
-password = 'mYiphone1$13106'
-server = 'dbserverdb1.database.windows.net'
-driver= '{ODBC Driver 13 for SQL Server}'
-connstr = 'DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+databaseName+';UID='+username+';PWD='+ password
-try:
- 
-    conn = pyodbc.connect(connstr)
-    cursor = conn.cursor()
-except Exception:
-    print("Error connecting DB")
-@app.route('/hello')
-def hello():
- return "Hello, Flask!"
+# databaseName = 'db12'
+# username = 'dbserverdb1admin'
+# password = 'mYiphone1$13106'
+# server = 'dbserverdb1.database.windows.net'
+# driver= '{ODBC Driver 13 for SQL Server}'
+# connstr = 'DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+databaseName+';UID='+username+';PWD='+ password
+import pymssql  
+conn = pymssql.connect(server='dbserverdb1.database.windows.net', user='dbserverdb1admin', password='mYiphone1$13106', database='db12')
+# try:
+# conn = pyodbc.connect(connstr)
+cursor = conn.cursor()
+# except Exception:
+#     print("Error connecting DB")
 
-@app.route('/show')
+
+@app.route('/')
 def index():
+
     arr=[]
-    query = "SELECT * FROM EARTHQUAKE LIMIT 10"
+    arr1=[]
+    # conn = pyodbc.connect(connstr)
+    # cursor = conn.cursor()
+    query = 'SELECT TOP 3 * FROM [dbo].[earthquakes]'
     cursor.execute(query)
-    data = cursor.fetchall()
-    print(data)
-    while data:
-        arr.append(data)
-        data = cursor.fetchone()
+    print(cursor)
+    row = cursor.fetchall() 
+    print(type(row))
+    while row:  
+        arr1 = np.asarray(row)
+        arr.append(arr1) 
+        row = cursor.fetchone() 
     return render_template('main.html', table=arr)
