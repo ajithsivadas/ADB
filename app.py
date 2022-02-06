@@ -20,17 +20,17 @@ cursor = conn.cursor()
 @app.route('/')
 def index():
 
-    arr=[]
-    arr1=[]
-    # conn = pyodbc.connect(connstr)
-    # cursor = conn.cursor()
-    query = 'SELECT TOP 3 * FROM earthquakes'
-    cursor.execute(query)
-    print(cursor)
-    row = cursor.fetchall() 
-    print(type(row))
-    while row:  
-        arr1 = np.asarray(row)
-        arr.append(arr1) 
-        row = cursor.fetchone() 
-    return render_template('main.html', table=arr)
+#     arr=[]
+#     arr1=[]
+#     # conn = pyodbc.connect(connstr)
+#     # cursor = conn.cursor()
+#     query = 'SELECT TOP 3 * FROM earthquakes'
+#     cursor.execute(query)
+#     print(cursor)
+#     row = cursor.fetchall() 
+#     print(type(row))
+#     while row:  
+#         arr1 = np.asarray(row)
+#         arr.append(arr1) 
+#         row = cursor.fetchone() 
+    return render_template('main.html')
