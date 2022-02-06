@@ -24,7 +24,7 @@ def index():
     arr1=[]
     # conn = pyodbc.connect(connstr)
     # cursor = conn.cursor()
-    query = 'SELECT TOP 3 * FROM [dbo].[earthquakes]'
+    query = 'SELECT TOP 3 * FROM earthquakes'
     cursor.execute(query)
     print(cursor)
     row = cursor.fetchall() 
