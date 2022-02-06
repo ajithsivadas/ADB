@@ -14,7 +14,7 @@ def index():
 
     arr=[]
     arr1=[]
-    query = 'SELECT * FROM [dbo].[earthquakes]'
+    query = 'SELECT TOP 3 * FROM [dbo].[earthquakes]'
     cursor.execute(query)
     print(cursor)
     row = cursor.fetchone() 
