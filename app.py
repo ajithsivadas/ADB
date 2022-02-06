@@ -13,7 +13,7 @@ try:
     cursor = conn.cursor()
 except Exception:
     print("Error connecting DB")
-@app.route('/')
+@app.route('/hello')
 def hello():
  return "Hello, Flask!"
 
