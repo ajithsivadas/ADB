@@ -9,3 +9,4 @@ flask-bootstrap
 flask-nav
 werkzeug==0.16.1
 sqlalchemy
+pymssql
